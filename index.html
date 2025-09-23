@@ -1,0 +1,387 @@
+<!doctype html>
+<html lang="es" data-bs-theme="light">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Mi Portfolio | Desarrollador</title>
+
+  <!-- SEO básico -->
+  <meta name="description" content="Portfolio de desarrollador: proyectos, habilidades, experiencia y contacto." />
+  <meta name="author" content="Tu Nombre" />
+  <link rel="icon" href="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f4bb.svg" />
+
+  <!-- Bootstrap 5 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <!-- Bootstrap Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet" />
+
+  <style>
+    :root {
+      --brand: #0d6efd;
+      --brand-2: #6c757d;
+    }
+    html { scroll-behavior: smooth; }
+    body { min-height: 100dvh; }
+    .nav-link { font-weight: 500; }
+    .hero {
+      background: radial-gradient(80% 60% at 15% 15%, rgba(13,110,253,.15), transparent 60%),
+                  radial-gradient(60% 50% at 85% 15%, rgba(111,66,193,.12), transparent 60%);
+    }
+    .avatar {
+      width: 120px; height: 120px; border-radius: 50%; object-fit: cover;
+      box-shadow: 0 10px 30px rgba(0,0,0,.15);
+    }
+    .tech-badge { border: 1px solid var(--bs-border-color); }
+    .card:hover { transform: translateY(-4px); transition: .2s ease; }
+    .section-title { position: relative; display: inline-block; }
+    .section-title::after {
+      content: ""; position: absolute; left: 0; bottom: -6px; width: 45%; height: 3px;
+      background: var(--brand); border-radius: 2px;
+    }
+    /* Timeline simple */
+    .timeline { border-left: 2px solid var(--bs-border-color); padding-left: 1rem; }
+    .timeline .t-item { position: relative; margin-bottom: 1.25rem; }
+    .timeline .t-item::before {
+      content: ""; position: absolute; left: -9px; top: .35rem; width: 12px; height: 12px;
+      background: var(--brand); border-radius: 50%;
+    }
+    /* Contact */
+    .form-control, .form-select { border-radius: .75rem; }
+    .btn-pill { border-radius: 999px; }
+    footer a { text-decoration: none; }
+  </style>
+</head>
+<body>
+  <!-- ===== NAVBAR ===== -->
+  <nav class="navbar navbar-expand-lg sticky-top bg-body-tertiary border-bottom">
+    <div class="container">
+      <a class="navbar-brand d-flex align-items-center gap-2" href="#">
+        <i class="bi bi-braces-asterisk text-primary"></i>
+        <strong>RichardTorres.dev</strong>
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#nav" aria-controls="nav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="nav">
+        <ul class="navbar-nav ms-auto mb-2 mb-lg-0 align-items-lg-center gap-lg-2">
+          <li class="nav-item"><a class="nav-link" href="#perfil">Perfil</a></li>
+          <li class="nav-item"><a class="nav-link" href="#proyectos">Proyectos</a></li>
+          <li class="nav-item"><a class="nav-link" href="#experiencia">Experiencias Laborales</a></li>
+          <li class="nav-item"><a class="nav-link" href="#contacto">Contacto</a></li>
+          <li class="nav-item ms-lg-3">
+            <button id="themeToggle" class="btn btn-outline-secondary btn-sm btn-pill" type="button">
+              <i class="bi bi-sun me-1" id="themeIcon"></i>
+              Tema
+            </button>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ===== HERO ===== -->
+  <header class="hero py-5 py-lg-6 border-bottom">
+    <div class="container py-4">
+      <div class="row align-items-center g-4">
+        <div class="col-lg-7">
+          <h1 class="display-5 fw-bold mb-3">Hola, soy <span class="text-primary">Richard Torres</span> 👋</h1>
+          <p class="lead text-secondary">Desarrollador <strong>Full‑Stack</strong> especializado en <u>HTML5</u>, <u>CSS</u>, <u>JavaScript</u>, <u>Node.js</u>, <u>React</u> y <u>MySQL</u>. Construyo productos web rápidos, accesibles y mantenibles.</p>
+          <div class="d-flex flex-wrap gap-2 mt-3">
+            <a class="btn btn-primary btn-lg btn-pill" href="#proyectos"><i class="bi bi-rocket-takeoff me-2"></i>Ver proyectos</a>
+            <!-- <a class="btn btn-outline-secondary btn-lg btn-pill" href="./cv.pdf" download><i class="bi bi-download me-2"></i>Descargar CV</a> -->
+            <a class="btn btn-outline-primary btn-lg btn-pill" href="#contacto"><i class="bi bi-envelope me-2"></i>Contáctame</a>
+          </div>
+          <div class="d-flex align-items-center gap-3 mt-4">
+            <!-- <a class="text-body-secondary" target="_blank" href="https://github.com/" aria-label="GitHub"><i class="bi bi-github fs-3"></i></a>
+            <a class="text-body-secondary" target="_blank" href="https://www.linkedin.com/" aria-label="LinkedIn"><i class="bi bi-linkedin fs-3"></i></a>
+            <a class="text-body-secondary" target="_blank" href="mailto:ritorrdev@gmail.com" aria-label="Email"><i class="bi bi-envelope fs-3"></i></a> -->
+          </div>
+        </div>
+        <div class="col-lg-5 text-center text-lg-end">
+          <img class="avatar" src="assets/yocv.jpg" alt="Foto de perfil" />
+          <p class="small text-secondary mt-3">Disponible para proyectos freelance y posiciones remotas.</p>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- ===== PERFIL (Sobre mí + Habilidades) ===== -->
+<section id="perfil" class="py-5 bg-body-tertiary border-top border-bottom">
+  <div class="container">
+    <h2 class="section-title h3">Perfil</h2>
+
+    <div class="row g-4 mt-1">
+      <!-- Tarjeta Sobre mí -->
+      <div class="col-lg-6">
+        <div class="card h-100 border-0 shadow-sm">
+          <div class="card-body">
+            <h3 class="h5 mb-3"><i class="bi bi-person-lines-fill me-2"></i>Sobre mí</h3>
+            <p class="mb-3">Desarrollador Full‑Stack, recibido como Analista Programador en el 2025 de la Universidad CLAEH</p>
+            <ul class="mb-0">
+              <li>Stack: HTML5, CSS, JavaScript, Node.js, Express, React, MySQL/SQLServer.</li>              
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tarjeta Habilidades -->
+      <div class="col-lg-6">
+        <div class="card h-100 border-0 shadow-sm">
+          <div class="card-body">
+            <h3 class="h5 mb-3"><i class="bi bi-tools me-2"></i>Habilidades</h3>
+            <div class="row g-2">
+              <div class="col-6"><span class="badge rounded-pill text-bg-light tech-badge w-100 py-2"><i class="bi bi-lightning-charge me-1"></i>JavaScript</span></div>
+              <div class="col-6"><span class="badge rounded-pill text-bg-light tech-badge w-100 py-2">Node.js / Express</span></div>
+              <div class="col-6"><span class="badge rounded-pill text-bg-light tech-badge w-100 py-2">React</span></div>
+              <div class="col-6"><span class="badge rounded-pill text-bg-light tech-badge w-100 py-2">MySQL</span></div>
+              <div class="col-6"><span class="badge rounded-pill text-bg-light tech-badge w-100 py-2">Bootstrap 5</span></div>
+              <div class="col-6"><span class="badge rounded-pill text-bg-light tech-badge w-100 py-2">Git / GitHub</span></div>
+              <div class="col-6"><span class="badge rounded-pill text-bg-light tech-badge w-100 py-2">HTML5</span></div>
+              <div class="col-6"><span class="badge rounded-pill text-bg-light tech-badge w-100 py-2">CSS</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+  <!-- ===== PROYECTOS ===== -->
+  <section id="proyectos" class="py-5">
+    <div class="container">
+      <div class="d-flex justify-content-between align-items-center flex-wrap gap-2">
+        <h2 class="section-title h3 mb-0">Proyectos</h2>
+        <a class="btn btn-outline-primary btn-pill" href="https://github.com/" target="_blank"><i class="bi bi-github me-2"></i>Ver más</a>
+      </div>
+
+      <div class="row g-4 mt-1">
+        <!-- Proyecto 1 -->
+        <div class="col-md-6 col-lg-4">
+          <article class="card h-100 border-0 shadow-sm">
+            <img src="assets/aura.jpg" class="card-img-top" alt="Preview proyecto" />
+            <div class="card-body d-flex flex-column">
+              <h3 class="h5">AURA MKT – Panel Admin</h3>
+              <p class="text-secondary small flex-grow-1">Panel de usuarios, roles y notificaciones con Node.js, Express, React y MySQL. Sistema de login por roles y subida de archivos.</p>
+              <div class="d-flex gap-2">
+                <a class="btn btn-primary btn-pill" data-bs-toggle="modal" data-bs-target="#p1Modal">Detalles</a>
+                <a class="btn btn-outline-secondary btn-pill" href="#" target="_blank"><i class="bi bi-box-arrow-up-right me-1"></i>Demo</a>
+              </div>
+            </div>
+          </article>
+        </div>
+        <!-- Proyecto 2 -->
+        <div class="col-md-6 col-lg-4">
+          <article class="card h-100 border-0 shadow-sm">
+            <img src="assets/sevicol.jpg" class="card-img-top" alt="Preview proyecto" />
+            <div class="card-body d-flex flex-column">
+              <h3 class="h5">Sevicol – Website</h3>
+              <p class="text-secondary small flex-grow-1">Sitio corporativo moderno con Bootstrap 5, secciones dinámicas y optimización de Core Web Vitals.</p>
+              <div class="d-flex gap-2">
+                <a class="btn btn-primary btn-pill" data-bs-toggle="modal" data-bs-target="#p2Modal">Detalles</a>
+                <a class="btn btn-outline-secondary btn-pill" href="https://sevicol.com.uy" target="_blank"><i class="bi bi-box-arrow-up-right me-1"></i>Web</a>
+              </div>
+            </div>
+          </article>
+        </div>
+  </section>
+
+  <!-- Modales de proyectos -->
+  <div class="modal fade" id="p1Modal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">AURA MKT – Panel Admin</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+        </div>
+        <div class="modal-body">
+          <ul class="mb-0">
+            <li>Auth con roles y protección de rutas.</li>
+            <li>CRUD de usuarios, notificaciones y archivos adjuntos.</li>
+            <li>Stack: Node.js, Express, React, MySQL, Bootstrap 5.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="modal fade" id="p2Modal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Sevicol – Website</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+        </div>
+        <div class="modal-body">
+          <ul class="mb-0">
+            <li>Secciones administrables, grilla de servicios, carruseles.</li>
+            <li>Optimización de performance y accesibilidad (Lighthouse 90+).</li>
+            <li>Stack: HTML, CSS, Bootstrap 5, JS.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== EXPERIENCIA ===== -->
+  <section id="experiencia" class="py-5 bg-body-tertiary border-top border-bottom">
+    <div class="container">
+      <h2 class="section-title h3">Experiencias Laborales</h2>
+      <div class="timeline mt-3">
+        <div class="t-item">
+          <h3 class="h6 mb-1">Desarrollador Full‑Stack – Freelance <span class="text-secondary">(8/2025 – 9/2025)</span></h3>
+          <p class="mb-2 text-secondary small">Diseño y desarrollo de aplicación web para Sevicol S.A.: Pagina Web con conexión a Base de Datos</p>
+        </div>
+        <div class="t-item">
+          <h3 class="h6 mb-1">Desarrollador Full‑Stack – Freelance <span class="text-secondary">(6/2025 – Actualidad)</span></h3>
+          <p class="mb-2 text-secondary small">Diseño y desarrollo de aplicación web para AuraMKT: Oficina Virtual para equipo de marketing digital con analisis de datos, perfiles, login,etc</p>
+        </div>
+  </section>
+
+  <!-- ===== CONTACTO ===== -->
+  <section id="contacto" class="py-5">
+    <div class="container">
+      <h2 class="section-title h3">Contacto</h2>
+      <div class="row g-4 mt-1">
+        <div class="col-lg-6">
+          <form id="contactForm" class="needs-validation" novalidate>
+            <div class="mb-3">
+              <label class="form-label" for="name">Nombre</label>
+              <input id="name" class="form-control" type="text" placeholder="Tu nombre" required />
+              <div class="invalid-feedback">Ingresa tu nombre.</div>
+            </div>
+            <div class="mb-3">
+              <label class="form-label" for="email">Email</label>
+              <input id="email" class="form-control" type="email" placeholder="tunombre@correo.com" required />
+              <div class="invalid-feedback">Ingresa un email válido.</div>
+            </div>
+            <div class="mb-3">
+              <label class="form-label" for="message">Mensaje</label>
+              <textarea id="message" class="form-control" rows="5" placeholder="Contame sobre tu proyecto..." required></textarea>
+              <div class="invalid-feedback">Escribe un mensaje.</div>
+            </div>
+
+            <!-- Honeypot anti-spam -->
+            <input type="text" id="company" name="company" class="d-none" tabindex="-1" autocomplete="off">
+
+            <div class="form-check mb-3">
+              <input class="form-check-input" type="checkbox" id="consent" required />
+              <label class="form-check-label" for="consent">Acepto la política de privacidad.</label>
+              <div class="invalid-feedback">Debes aceptar para continuar.</div>
+            </div>
+
+            <button class="btn btn-primary btn-pill" type="submit">
+              <i class="bi bi-send me-2"></i>Enviar
+            </button>
+            <small id="formMsg" class="ms-3"></small>
+          </form>
+        </div>
+        <div class="col-lg-6">
+          <div class="p-4 rounded-4 border h-100">
+            <h3 class="h6 text-secondary">Disponible</h3>
+            <p class="mb-1">Email: <a href="mailto:ritorrdev@gmail.com">RiTorrDev@gmail.com</a></p>
+            <p class="mb-3">Ubicación: Colonia / Remoto LATAM</p>
+            <div class="ratio ratio-16x9 rounded-4 overflow-hidden">
+              <iframe title="Mapa" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d13184.79409040628!2d-57.2479867!3d-34.2944847!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2s!5e0!3m2!1ses!2suy!4v1758570758663!5m2!1ses!2suy"></iframe>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="py-4 border-top bg-body-tertiary">
+    <div class="container d-flex flex-wrap justify-content-between align-items-center gap-3">
+      <span class="text-secondary small">© <span id="year"></span> RichardTorres.dev – Hecho con Bootstrap 5</span>
+      <div class="d-flex align-items-center gap-3">
+        <a class="text-secondary" href="#" title="Arriba"><i class="bi bi-arrow-up-circle fs-5"></i></a>
+        <a class="text-secondary" href="/privacy.html">Privacidad</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- SDK de EmailJS -->
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+
+<script>
+(function() {
+  // Inicializa EmailJS
+  emailjs.init({ publicKey: "68ypQOU_iS54fO1v4" });
+
+  const form    = document.getElementById('contactForm');
+  const formMsg = document.getElementById('formMsg');
+
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+
+    if (!form.checkValidity()) {
+      form.classList.add('was-validated');
+      formMsg.textContent = '';
+      return;
+    }
+
+    // Honeypot
+    if (document.getElementById('company').value) {
+      formMsg.textContent = 'Error de validación.';
+      formMsg.className = 'text-danger';
+      return;
+    }
+
+    const params = {
+      from_name:  document.getElementById('name').value.trim(),
+      from_email: document.getElementById('email').value.trim(),
+      message:    document.getElementById('message').value.trim(),
+      page:       window.location.href,
+      subject:    '📩 Nuevo mensaje desde RichardTorres.dev'
+    };
+
+    const SERVICE_ID  = "service_3ecb3bo";
+    const TEMPLATE_ID = "template_1rb5mf9";
+
+    try {
+      // Envía usando EmailJS
+      await emailjs.send(SERVICE_ID, TEMPLATE_ID, params);
+
+      form.reset();
+      form.classList.remove('was-validated');
+      formMsg.textContent = '¡Gracias! Tu mensaje fue enviado correctamente ✅';
+      formMsg.className = 'text-success';
+    } catch (err) {
+      console.error(err);
+      formMsg.textContent = 'Ups, ocurrió un error. Intenta nuevamente.';
+      formMsg.className = 'text-danger';
+    }
+  });
+})();
+</script>
+
+  <script>
+    // Año footer
+    document.getElementById('year').textContent = new Date().getFullYear();
+ 
+    // Toggle de tema (light/dark) con persistencia
+    (function() {
+      const root = document.documentElement;
+      const btn = document.getElementById('themeToggle');
+      const icon = document.getElementById('themeIcon');
+      const stored = localStorage.getItem('theme');
+      if (stored) document.documentElement.setAttribute('data-bs-theme', stored);
+      const setIcon = () => {
+        const isDark = root.getAttribute('data-bs-theme') === 'dark';
+        icon.className = isDark ? 'bi bi-moon' : 'bi bi-sun';
+      };
+      setIcon();
+      btn.addEventListener('click', () => {
+        const current = root.getAttribute('data-bs-theme');
+        const next = current === 'dark' ? 'light' : 'dark';
+        root.setAttribute('data-bs-theme', next);
+        localStorage.setItem('theme', next);
+        setIcon();
+      });
+    })();
+  </script>
+</body>
+</html>

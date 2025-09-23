@@ -1,0 +1,52 @@
+:root{
+  --brand:#0d6efd;
+  --bg1:#0d6efd1a;   /* azul suave */
+  --bg2:#6f42c11a;   /* violeta suave */
+  --bg3:#20c9971a;   /* verde suave */
+}
+html{scroll-behavior:smooth}
+body{min-height:100dvh}
+
+/* ===== HERO ===== */
+.hero{
+  position:relative;
+  min-height:100svh; /* full viewport */
+  display:flex;
+  align-items:center;
+  overflow:hidden;
+}
+.hero-bg{
+  position:absolute; inset:0; z-index:1;
+  background:
+    radial-gradient(80% 60% at 15% 20%, var(--bg1), transparent 65%),
+    radial-gradient(70% 55% at 85% 15%, var(--bg2), transparent 65%),
+    radial-gradient(70% 55% at 85% 85%, var(--bg3), transparent 65%);
+  filter:saturate(1.2);
+}
+.btn-pill{border-radius:999px}
+
+/* Imagen “parallax” a la derecha */
+.hero-visual{
+  position:sticky; top:0; height:100svh;
+  pointer-events:none; /* no bloquea clicks */
+}
+.hero-visual .pose{
+  position:absolute; right:0; bottom:0;
+  max-height:98svh; width:auto; object-fit:contain;
+  transform:translate3d(0,0,0);
+  transition:opacity .45s ease, transform .15s linear;
+  opacity:0;
+}
+.hero-visual .pose-1{opacity:1}
+.hero-visual .pose-2{opacity:0}
+
+/* ===== Tarjetas dashboard de “Sobre mí & Habilidades” ===== */
+.card-dashboard{border-radius:1rem; box-shadow:0 6px 18px rgba(0,0,0,.08); transition:.2s}
+.card-dashboard:hover{transform:translateY(-4px)}
+.tech-badge{border:1px solid var(--bs-border-color)}
+
+/* Responsivo */
+@media (max-width: 991.98px){
+  .hero{padding-top:2rem; padding-bottom:2rem}
+  .hero-visual{display:none} /* oculto en móvil para no tapar contenido */
+}
